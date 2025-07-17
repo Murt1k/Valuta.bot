@@ -5,20 +5,18 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from handlers.command import command_router
 from handlers.callbacks import callbacks_router
-
-
-from dotenv import load_dotenv
+from antyflood import AntiFloodMiddleware
+import asyncio
 import os
 
-import asyncio
-
-load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
-key = os.getenv ("Curs")
 
 dp = Dispatcher()
 dp.include_router(command_router)
 dp.include_router(callbacks_router)
+
+dp.message.middleware(AntiFloodMiddleware())
+
 
 async def main():
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
