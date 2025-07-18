@@ -14,7 +14,7 @@ keyboard_start = ReplyKeyboardMarkup(
 keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text = "💱калькулятор валют💱")],
-        [KeyboardButton(text = "⚖️Просмотр актуального курса⚖️")],
+        [KeyboardButton(text = "⚖️просмотр актуального курса⚖️")],
         [KeyboardButton(text = "‼️где купить или продать валюту‼️")]
     ],
     resize_keyboard = True
